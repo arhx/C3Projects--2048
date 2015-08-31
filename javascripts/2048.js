@@ -11,6 +11,14 @@ $(document).ready(function() {
 })
 
 function moveTiles(direction) {
+  var tiles = $(".tile");
+  for (i = 0; i < tiles.length; i++) {
+    moveTile(tiles[i], direction);
+  }
+
+}
+
+function moveTile(tile, direction) {
   var farthestEdgeType = "";
   var farthestEdgeValue = "";
 
@@ -33,18 +41,7 @@ function moveTiles(direction) {
       break;
   }
 
-  var tiles = $(".tile");
-  for (i = 0; i < tiles.length; i++) {
-    moveTile(tiles[i], direction);
-  }
-
-}
-
-function moveTile(tile, direction) {
-  console.log(tile);
-  console.log(tile.getAttribute("data-row"));
-  // move UP
-  tile.setAttribute("data-row", "r0");
+  tile.setAttribute(farthestEdgeType, farthestEdgeValue);
 }
 
 // function moveTile(tile, direction) {
