@@ -15,7 +15,6 @@ function moveTiles(direction) {
   for (i = 0; i < tiles.length; i++) {
     moveTile(tiles[i], direction);
   }
-
 }
 
 function moveTile(tile, direction) {
@@ -43,24 +42,3 @@ function moveTile(tile, direction) {
 
   tile.setAttribute(farthestEdgeType, farthestEdgeValue);
 }
-
-// function moveTile(tile, direction) {
-//   var new_tile_value = tile.attr("data-val") * 2;
-//   tile.attr("data-val", new_tile_value);
-//   tile.text(new_tile_value);
-
-//   switch(direction) {
-//     case 38: //up
-//       tile.attr("data-row","r0");
-//       break;
-//     case 40: //down
-//       tile.attr("data-row","r3");
-//       break;
-//     case 37: //left
-//       tile.attr("data-col","c0");
-//       break;
-//     case 39: //right
-//       tile.attr("data-col","c3");
-//       break;
-//   }
-// }
