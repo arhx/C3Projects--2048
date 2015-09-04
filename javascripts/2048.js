@@ -343,6 +343,19 @@ function makeTurn(direction) {
   function gameLoss() {
     $("#gameboard").addClass("game-over");
     gameOverBox("Game Over!", "new-game", "Try again");
+    updateBestScore();
+  }
+
+  function updateBestScore() {
+    var bestScore = sessionStorage.getItem("bestScore");
+    if (score > bestScore) {
+      sessionStorage.setItem("bestScore", score);
+    }
+    var newBestScore = (bestScore > score) ? bestScore : score;
+    var bestScoreBoard = $("#best-score");
+    bestScoreBoard.attr("data-score", newBestScore);
+    bestScoreBoard.text(newBestScore);
+    console.log("best score: " + newBestScore);
   }
 
   function checkLoss() {
