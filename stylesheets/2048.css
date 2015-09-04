@@ -45,26 +45,33 @@ span.special {
   font-weight: bold;
 }
 
-#scoreboard {
+#current-scoreboard {
   background: #bbada0;
   border-radius: 0.25rem;
   top: 0;
   right: 0;
 }
 
-#scoreboard p {
+#best-scoreboard {
+  background: #bbada0;
+  border-radius: 0.25rem;
+  top: 0;
+  right: 0;
+}
+
+.scoreboard p {
   margin: 0;
   font-weight: bold;
   text-align: center;
   padding: 0.25rem;
 }
 
-#score-label {
+.score-label {
   font-size: .5rem;
   color: #ede0c8; /* same color as 4 tile background */
 }
 
-#score {
+.score {
   font-size: 1em;
   color: white;
 }
