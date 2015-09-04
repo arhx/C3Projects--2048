@@ -47,6 +47,8 @@ $(document).ready(function() {
 function prepareBoard() {
   addTile();
   addTile();
+  var bestScore = localStorage.getItem(bestScore) || 0;
+  $("#best-score").attr("data-score", bestScore);
 }
 
 
@@ -101,7 +103,7 @@ function makeTurn(direction) {
   var turnOppositeType = (turnType == "data-row") ? "data-col" : "data-row";
   // set the positive or negative magnitude according to direction
   var turnMagnitude = parseInt(getMagnitude(direction));
-  var score = parseInt($("#score").attr("data-score"));
+  var score = parseInt($("#current-score").attr("data-score"));
 
   // take snapshot of board at start of turn
   var startingGameboard = gameboardSnapshot($(".tile"));
@@ -132,7 +134,7 @@ function makeTurn(direction) {
 
   var updateScore = function(points) {
     score += points;
-    var scoreBoard = $("#score");
+    var scoreBoard = $("#current-score");
     scoreBoard.attr("data-score", score);
     scoreBoard.text(score);
   }
@@ -347,9 +349,9 @@ function makeTurn(direction) {
   }
 
   function updateBestScore() {
-    var bestScore = sessionStorage.getItem("bestScore");
+    var bestScore = localStorage.getItem(bestScore);
     if (score > bestScore) {
-      sessionStorage.setItem("bestScore", score);
+      localStorage.setItem(bestScore, score);
     }
     var newBestScore = (bestScore > score) ? bestScore : score;
     var bestScoreBoard = $("#best-score");
